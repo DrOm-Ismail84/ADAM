@@ -10,9 +10,6 @@ from glob import glob
 
 st.header("Advanced corrodeD pipe structurAl integrity systeM (ADAM)")
 
-htp="https://ars.els-cdn.com/content/image/1-s2.0-S0263822308000688-gr4.jpg"
-st.image(htp, caption= "Fig. 1: Cantilever beam subjected to edge load")
-
 st.sidebar.header('User Input Parameters')
 
 
