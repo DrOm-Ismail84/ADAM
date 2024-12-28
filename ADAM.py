@@ -54,9 +54,6 @@ Pvm = 4*t*UTS/(m.sqrt(3*D))
 # Calculate burst pressure of intact pipe P Tresca
 PTresca = 2*t*UTS/(D)
 
-# Calculate burst pressure of intact pipe P DnV (2013)
-PDnV = (2*t/(D-t))*UTS*(m.sqrt(3))
-
 # Calculate burst pressure of corrorded pipe P ASME B31G (2013)
 M = m.sqrt(1+0.8*(L/(m.sqrt(D*t)))) #Folias factor
 
@@ -92,11 +89,6 @@ st.write(calculated_param_df)
 calculated_param={'PTresca (MPa)': "{:.2f}".format(PTresca)}
 calculated_param_df=pd.DataFrame(calculated_param, index=[0])
 st.subheader('Calculated Intact Pipe Burst Pressure via Tresca')
-st.write(calculated_param_df)
-
-calculated_param={'PDnV (MPa)': "{:.2f}".format(PDnV)}
-calculated_param_df=pd.DataFrame(calculated_param, index=[0])
-st.subheader('Calculated Intact Pipe Burst Pressure via DnV')
 st.write(calculated_param_df)
 
 # Corroded Pipe
