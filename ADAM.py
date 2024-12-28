@@ -17,11 +17,11 @@ st.sidebar.header('User Input Parameters')
 
 
 def user_input_features():
-    pipe_thickness = st.sidebar.number_input('Pipe Thickness, t (mm)')
+    pipe_thickness = st.sidebar.number_input('Pipe Thickness, t (mm)', value = 1)
     pipe_diameter = st.sidebar.number_input('Pipe Diameter, D (mm)', value = 1)
-    pipe_length = st.sidebar.number_input('Pipe Length, L (mm)')
-    corrosion_length = st.sidebar.number_input('Corrosion Length, Lc (mm)')
-    corrosion_depth = st.sidebar.number_input('Corrosion Depth, Dc (mm)')
+    pipe_length = st.sidebar.number_input('Pipe Length, L (mm)', value = 1)
+    corrosion_length = st.sidebar.number_input('Corrosion Length, Lc (mm)', value = 1)
+    corrosion_depth = st.sidebar.number_input('Corrosion Depth, Dc (mm)', value = 1)
 
     UTS_sel = st.sidebar.radio('UTS (MPa)', ('235','355','440')) 
     if UTS_sel=='235': UTS=235
