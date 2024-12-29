@@ -93,9 +93,9 @@ calculated_param_df=pd.DataFrame(calculated_param, index=[0])
 st.subheader('Calculated Corrorded Pipe Burst Pressure via ASME_B31G')
 st.write(calculated_param_df)
 
-calculated_param={'P_LPC (MPa)': "{:.2f}".format(P_LPC)}
+calculated_param={'P_DnV (MPa)': "{:.2f}".format(P_DnV)}
 calculated_param_df=pd.DataFrame(calculated_param, index=[0])
-st.subheader('Calculated Corrorded Pipe Burst Pressure via LPC')
+st.subheader('Calculated Corrorded Pipe Burst Pressure via DnV')
 st.write(calculated_param_df)
 
 calculated_param={'P_PCORRC (MPa)': "{:.2f}".format(P_PCORRC)}
