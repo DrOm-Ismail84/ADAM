@@ -43,6 +43,8 @@ Lc=df['Lc (mm)'].values.item()
 Dc=df['Dc (mm)'].values.item()
 UTS=df['UTS (MPa)'].values.item()
 
+st.subheader('Nomenclature')
+st.write('t is the pipe thickness; D is the pipe diameter; L is the pipe length; Lc is the corrorsion length; Dc is the corrorsion depth; UTS is the pipe material Ultimate Tensile Strength.')
 
 # Calculate burst pressure of intact pipe P Von Mises
 Pvm = 4*t*UTS/(m.sqrt(3)*D)
@@ -102,9 +104,6 @@ calculated_param={'P_PCORRC (MPa)': "{:.2f}".format(P_PCORRC)}
 calculated_param_df=pd.DataFrame(calculated_param, index=[0])
 st.subheader('Calculated Corrorded Pipe Burst Pressure via PCORRC')
 st.write(calculated_param_df)
-
-st.subheader('Nomenclature')
-st.write('t is the pipe thickness; D is the pipe diameter; L is the pipe length; Lc is the corrorsion length; Dc is the corrorsion depth; UTS is the pipe material Ultimate Tensile Strength.')
 
 st.subheader('Reference')
 st.write('Xian-Kui Zhu, A comparative study of burst failure models for assessing remaining strength of corroded pipelines, Journal of Pipeline Science and Engineering 1 (2021) 36 - 50, https://doi.org/10.1016/j.jpse.2021.01.008')
