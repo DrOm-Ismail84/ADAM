@@ -17,12 +17,12 @@ st.sidebar.header('User Input Parameters')
 
 
 def user_input_features():
-    pipe_thickness = st.sidebar.number_input('Pipe Thickness, t (mm)', value = 1)
-    pipe_diameter = st.sidebar.number_input('Pipe Diameter, D (mm)', value = 1)
-    pipe_length = st.sidebar.number_input('Pipe Length, L (mm)', value = 1)
-    corrosion_length = st.sidebar.number_input('Corrosion Length, Lc (mm)', value = 1)
-    corrosion_depth = st.sidebar.number_input('Corrosion Depth, Dc (mm)', value = 1)
-    UTS = st.sidebar.number_input('Ultimate Tensile Strength, UTS (MPa)', value = 1)
+    pipe_thickness = st.sidebar.number_input('Pipe Thickness, t (mm)', value = 0.01)
+    pipe_diameter = st.sidebar.number_input('Pipe Diameter, D (mm)', value = 0.01)
+    pipe_length = st.sidebar.number_input('Pipe Length, L (mm)', value = 0.01)
+    corrosion_length = st.sidebar.number_input('Corrosion Length, Lc (mm)', value = 0.01)
+    corrosion_depth = st.sidebar.number_input('Corrosion Depth, Dc (mm)', value = 0.01)
+    UTS = st.sidebar.number_input('Ultimate Tensile Strength, UTS (MPa)', value = 0.01)
 
     data = {'t (mm)': pipe_thickness,
             'D (mm)': pipe_diameter,
@@ -66,8 +66,8 @@ P_LPC = (2*t*UTS/D-t)*(1-(Dc/t)/1-(Dc/Q*t))
 # Calculate burst pressure of corroded pipe P PCORRC Model 
 P_PCORRC = (2*t*UTS/D)*1-(Dc/t)*(1-m.exp(-0.157*(L/m.sqrt(D*(t-Dc/2)))))
 
-user_input={'t (mm)': "{:.3f}".format(t),
-            'D (mm)': "{:.3f}".format(D),
+user_input={'t (mm)': "{:.2f}".format(t),
+            'D (mm)': "{:.2f}".format(D),
             'L (mm)': "{:.2f}".format(L),
             'Lc (mm)': "{:.2f}".format(Lc),
             'Dc (mm)': "{:.2f}".format(Dc),
