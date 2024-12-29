@@ -61,10 +61,10 @@ elif L > m.sqrt(20*D*t):
 
 # Calculate burst pressure of corrorded pipe P LPC Model
 Q = m.sqrt(1+0.31*(L/(m.sqrt(D*t)))**2) #Q is the curved fit of FEA results
-P_LPC = 2*t*UTS/D-t*(1-Dc/t/1-Dc/Q*t)
+P_LPC = 2*t*UTS/D-t*(1-Dc/t/ c1-Dc/Q*t)
 
 # Calculate burst pressure of corroded pipe P PCORRC Model 
-P_PCORRC = (2*t*UTS/D)*1-(Dc/t)*(1-m.exp(-0.157*(L/m.sqrt(D*(t-Dc/2)))))
+P_PCORRC = (2*t*UTS/D)*(1-Dc/t)
 
 user_input={'t (mm)': "{:.2f}".format(t),
             'D (mm)': "{:.2f}".format(D),
