@@ -66,8 +66,8 @@ P_LPC = (2*t*UTS/D-t)*(1-(Dc/t)/1-(Dc/Q*t))
 # Calculate burst pressure of corroded pipe P PCORRC Model 
 P_PCORRC = (2*t*UTS/D)*1-(Dc/t)*(1-m.exp(-0.157*(L/m.sqrt(D*(t-Dc/2)))))
 
-user_input={'t (mm)': "{:.2f}".format(t),
-            'D (mm)': "{:.2f}".format(D),
+user_input={'t (mm)': "{:.3f}".format(t),
+            'D (mm)': "{:.3f}".format(D),
             'L (mm)': "{:.2f}".format(L),
             'Lc (mm)': "{:.2f}".format(Lc),
             'Dc (mm)': "{:.2f}".format(Dc),
