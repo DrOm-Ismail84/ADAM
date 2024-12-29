@@ -22,11 +22,7 @@ def user_input_features():
     pipe_length = st.sidebar.number_input('Pipe Length, L (mm)', value = 1)
     corrosion_length = st.sidebar.number_input('Corrosion Length, Lc (mm)', value = 1)
     corrosion_depth = st.sidebar.number_input('Corrosion Depth, Dc (mm)', value = 1)
-
-    UTS_sel = st.sidebar.radio('UTS (MPa)', ('235','355','440')) 
-    if UTS_sel=='235': UTS=235
-    elif UTS_sel=='355': UTS=355
-    elif UTS_sel=='440': UTS=440
+    UTS = st.sidebar.number_input('Ultimate Tensile Strength, UTS (MPa)', value = 1)
 
     data = {'t (mm)': pipe_thickness,
             'D (mm)': pipe_diameter,
