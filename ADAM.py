@@ -105,14 +105,14 @@ calculated_param_df=pd.DataFrame(calculated_param, index=[0])
 st.subheader('Calculated Corrorded Pipe Burst Pressure via PCORRC')
 st.write(calculated_param_df)
 
-#Data
+#Output Data
 data = {
-    "Pvm (MPa)": Pvm,
-    "PTresca (MPa)": PTresca,
-    "P_ASME_B31G (MPa)": P_ASME_B31G,
-    "P_DnV (MPa)": P_DnV,
-    "P_PCORRC (MPa)": P_PCORRC,
-}
+    'Pvm (MPa)': Pvm,
+    'PTresca (MPa)': PTresca,
+    'P_ASME_B31G (MPa)': P_ASME_B31G,
+    'P_DnV (MPa)': P_DnV,
+    'P_PCORRC (MPa)': P_PCORRC}
+ features = pd.DataFrame(data, index=[0])
 
 df = pd.DataFrame(data)
 
