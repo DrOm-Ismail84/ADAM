@@ -115,7 +115,7 @@ data = {
 
 Burst_Pressure (MPa) == [Pvm, PTresca, P_ASME_B31G, P_DnV, P_PCORRC]
 index = ["Pvm (MPa)", "PTresca (MPa)", "P_ASME_B31G (MPa)", "P_DnV (MPa)", "P_PCORRC (MPa)"]
-df = pd.DataFrame({"Burst Pressure (MPa)": Burst_Pressure (MPa): lifespan}, index=index)
+df = pd.DataFrame({"Burst Pressure (MPa)": Burst_Pressure (MPa)}, index=index)
 
 st.pyplot(df.plot.barh(stacked=True).figure)
 
