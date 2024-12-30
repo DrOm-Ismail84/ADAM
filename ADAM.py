@@ -112,8 +112,10 @@ data = {
     'P_ASME_B31G (MPa)': P_ASME_B31G,
     'P_DnV (MPa)': P_DnV,
     'P_PCORRC (MPa)': P_PCORRC}
- 
-chart_data = pd.DataFrame(data)
+
+Burst Pressure (MPa) = [Pvm, PTresca, P_ASME_B31G, P_DnV, P_PCORRC]
+index = ["Pvm (MPa)", "PTresca (MPa)", "P_ASME_B31G (MPa)", "P_DnV (MPa)", "P_PCORRC (MPa)"]
+df = pd.DataFrame({"Burst Pressure (MPa)": Burst Pressure (MPa): lifespan}, index=index)
 
 st.bar_chart(chart_data, x="Design Codes", y="Burst Pressure (MPa)", color="site", horizontal=True)
 
