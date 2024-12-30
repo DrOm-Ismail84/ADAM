@@ -105,7 +105,7 @@ calculated_param_df=pd.DataFrame(calculated_param, index=[0])
 st.subheader('Calculated Corrorded Pipe Burst Pressure via PCORRC')
 st.write(calculated_param_df)
 
-Pressure == [Pvm, PTresca, P_ASME_B31G, P_DnV, P_PCORRC]
+Pressure = [Pvm, PTresca, P_ASME_B31G, P_DnV, P_PCORRC]
 index = ["Pvm (MPa)", "PTresca (MPa)", "P_ASME_B31G (MPa)", "P_DnV (MPa)", "P_PCORRC (MPa)"]
 df = pd.DataFrame({"Burst Pressure (MPa)": Pressure}, index=index)
 
