@@ -106,13 +106,13 @@ st.subheader('Calculated Corrorded Pipe Burst Pressure via PCORRC')
 st.write(calculated_param_df)
 
 #Data
-df = pd.DataFrame ({
+df = pd.DataFrame {
     "Pvm (MPa)": Pvm,
     "PTresca (MPa)": PTresca,
     "P_ASME_B31G (MPa)": P_ASME_B31G,
     "P_DnV (MPa)": P_DnV,
     "P_PCORRC (MPa)": P_PCORRC,
-})
+}
 
 st.bar_chart(pd.DataFrame, x="Design Codes", y="Burst Pressure (MPa)", color="site", horizontal=True)
 
