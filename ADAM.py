@@ -112,8 +112,7 @@ data = {
     'P_ASME_B31G (MPa)': P_ASME_B31G,
     'P_DnV (MPa)': P_DnV,
     'P_PCORRC (MPa)': P_PCORRC}
- features = pd.DataFrame(data, index=[0])
-
+ 
 df = pd.DataFrame(data)
 
 st.bar_chart(data, x="Design Codes", y="Burst Pressure (MPa)", color="site", horizontal=True)
