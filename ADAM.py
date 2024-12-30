@@ -16,7 +16,6 @@ st.image(htp, caption= "Fig. 1: Schematic illustration of the geometry of a typi
 
 st.sidebar.header('User Input Parameters')
 
-
 def user_input_features():
     pipe_thickness = st.sidebar.number_input('Pipe Thickness, t (mm)', value = 0.01)
     pipe_diameter = st.sidebar.number_input('Pipe Diameter, D (mm)', value = 0.01)
@@ -53,7 +52,7 @@ Pvm = 4*t*UTS/(m.sqrt(3)*D)
 # Calculate burst pressure of intact pipe P Tresca
 PTresca = 2*t*UTS/(D)
 
-# Calculate burst pressure of corrorded pipe P ASME B31G (2013)
+# Calculate burst pressure of corroded pipe P ASME B31G (2013)
 M = m.sqrt(1+0.8*(L/(m.sqrt(D*t)))) #Folias factor
 
 if L < m.sqrt(20*D*t):
@@ -62,7 +61,7 @@ if L < m.sqrt(20*D*t):
 elif L > m.sqrt(20*D*t):
     P_ASME_B31G = (2*t*UTS/D)*(1-(Dc/t))
 
-# Calculate burst pressure of corrorded pipe PDnV
+# Calculate burst pressure of corroded pipe PDnV
 Q = m.sqrt(1+0.31*(Lc)**2/D*t) #Q is the curved fit of FEA results
 P_DnV = (2*UTS*t/D-t)*((1-(Dc/t))/(1-(Dc/(t*Q))))
 
@@ -93,7 +92,7 @@ st.write(calculated_param_df)
 # Corroded Pipe
 calculated_param={'P_ASME_B31G (MPa)': "{:.2f}".format(P_ASME_B31G)}
 calculated_param_df=pd.DataFrame(calculated_param, index=[0])
-st.subheader('Calculated Corrorded Pipe Burst Pressure via ASME_B31G')
+st.subheader('Calculated Corroded Pipe Burst Pressure via ASME_B31G')
 st.write(calculated_param_df)
 
 calculated_param={'P_DnV (MPa)': "{:.2f}".format(P_DnV)}
@@ -105,6 +104,8 @@ calculated_param={'P_PCORRC (MPa)': "{:.2f}".format(P_PCORRC)}
 calculated_param_df=pd.DataFrame(calculated_param, index=[0])
 st.subheader('Calculated Corrorded Pipe Burst Pressure via PCORRC')
 st.write(calculated_param_df)
+
+st.bar_chart(pd.DataFrame, x="Burst Pressure (MPa)", y="Design Codes", color="site", horizontal=True)
 
 st.subheader('Reference')
 st.write('Xian-Kui Zhu, A comparative study of burst failure models for assessing remaining strength of corroded pipelines, Journal of Pipeline Science and Engineering 1 (2021) 36 - 50, https://doi.org/10.1016/j.jpse.2021.01.008')
