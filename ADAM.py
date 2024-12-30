@@ -105,17 +105,9 @@ calculated_param_df=pd.DataFrame(calculated_param, index=[0])
 st.subheader('Calculated Corrorded Pipe Burst Pressure via PCORRC')
 st.write(calculated_param_df)
 
-#Output Data
-data = {
-    'Pvm (MPa)': Pvm,
-    'PTresca (MPa)': PTresca,
-    'P_ASME_B31G (MPa)': P_ASME_B31G,
-    'P_DnV (MPa)': P_DnV,
-    'P_PCORRC (MPa)': P_PCORRC}
-
-Burst_Pressure (MPa) == [Pvm, PTresca, P_ASME_B31G, P_DnV, P_PCORRC]
+Pressure == [Pvm, PTresca, P_ASME_B31G, P_DnV, P_PCORRC]
 index = ["Pvm (MPa)", "PTresca (MPa)", "P_ASME_B31G (MPa)", "P_DnV (MPa)", "P_PCORRC (MPa)"]
-df = pd.DataFrame({"Burst Pressure (MPa)": Burst_Pressure (MPa)}, index=index)
+df = pd.DataFrame({"Burst Pressure (MPa)": Pressure}, index=index)
 
 st.pyplot(df.plot.barh(stacked=True).figure)
 
