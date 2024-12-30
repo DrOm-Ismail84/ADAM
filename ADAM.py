@@ -105,7 +105,16 @@ calculated_param_df=pd.DataFrame(calculated_param, index=[0])
 st.subheader('Calculated Corrorded Pipe Burst Pressure via PCORRC')
 st.write(calculated_param_df)
 
-st.bar_chart(pd.DataFrame, x="Burst Pressure (MPa)", y="Design Codes", color="site", horizontal=True)
+#Data
+df = pd.DataFrame ({
+    'Pvm (MPa)': Pvm,
+    'PTresca (MPa)': PTresca,
+    'P_ASME_B31G (MPa)': P_ASME_B31G,
+    'P_DnV (MPa)': P_DnV,
+    'P_PCORRC (MPa)': P_PCORRC
+})
+
+st.bar_chart(pd.DataFrame, x="Design Codes", y="Burst Pressure (MPa)", color="site", horizontal=True)
 
 st.subheader('Reference')
 st.write('Xian-Kui Zhu, A comparative study of burst failure models for assessing remaining strength of corroded pipelines, Journal of Pipeline Science and Engineering 1 (2021) 36 - 50, https://doi.org/10.1016/j.jpse.2021.01.008')
