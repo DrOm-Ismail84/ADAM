@@ -114,5 +114,6 @@ st.pyplot(df.plot.barh(stacked=True).figure)
 
 st.subheader('Reference')
 st.write('Xian-Kui Zhu, A comparative study of burst failure models for assessing remaining strength of corroded pipelines, Journal of Pipeline Science and Engineering 1 (2021) 36 - 50, https://doi.org/10.1016/j.jpse.2021.01.008')
+st.markdown('[Case Study](https://drive.google.com/drive/u/0/folders/1Fo73QNv2ip9u97PDFkypIMtwAoeNwfh-)', unsafe_allow_html=True)
 st.markdown('[Corroded Pipe Burst Data](https://docs.google.com/spreadsheets/d/1YJ7ziuc_IhU7-MMZOnRmh4h21_gf6h5Z/edit?gid=56754844#gid=56754844)', unsafe_allow_html=True)
 st.markdown('[Pre-Test](https://forms.gle/wPvcgnZAC57MkCxN8)', unsafe_allow_html=True)
