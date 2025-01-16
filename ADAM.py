@@ -80,7 +80,9 @@ user_input={'t (mm)': "{:.2f}".format(t),
             'L (mm)': "{:.2f}".format(L),
             'Lc (mm)': "{:.2f}".format(Lc),
             'Dc (mm)': "{:.2f}".format(Dc),
-            'UTS (MPa)': "{:.2f}".format(UTS)}
+            'UTS (MPa)': "{:.2f}".format(UTS)
+            'Pop_Max (MPa)': Maximum_Operating_Pressure,
+            'Pop_Min (MPa)': Minimum_Operating_Pressure}
 user_input_df=pd.DataFrame(user_input, index=[0])
 st.subheader('User Input Parameters')
 st.write(user_input_df)
