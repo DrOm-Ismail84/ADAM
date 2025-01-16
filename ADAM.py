@@ -34,8 +34,8 @@ def user_input_features():
             'Lc (mm)': corrosion_length,
             'Dc (mm)': corrosion_depth,           
             'UTS (MPa)': UTS,
-            'Pop, Max (MPa)': Maximum_Operating_Pressure,
-            'Pop, Min (MPa)': Minimum_Operating_Pressure}
+            'Pop_Max (MPa)': Maximum_Operating_Pressure,
+            'Pop_Min (MPa)': Minimum_Operating_Pressure}
     features = pd.DataFrame(data, index=[0])
     return features
 
@@ -94,11 +94,6 @@ calculated_param_df=pd.DataFrame(calculated_param, index=[0])
 st.subheader('Calculated Intact Pipe Burst Pressure via Tresca')
 st.write(calculated_param_df)
 
-calculated_param={'Pvm (MPa)': "{:.2f}".format(Pvm)}
-calculated_param_df=pd.DataFrame(calculated_param, index=[0])
-st.subheader('Calculated Intact Pipe Burst Pressure via Von Mises')
-st.write(calculated_param_df)
-
 # Corroded Pipe
 calculated_param={'P_ASME_B31G (MPa)': "{:.2f}".format(P_ASME_B31G)}
 calculated_param_df=pd.DataFrame(calculated_param, index=[0])
@@ -122,13 +117,13 @@ df = pd.DataFrame({"Burst Pressure (MPa)": Pressure}, index=index)
 st.pyplot(df.plot.barh(stacked=True).figure)
 
 # Principle stresses for Maximum Operating Pressure
-P1max = Pop, Max*D/2*t
-P2max = Pop, Max*D/4*t
+P1max = Pop_Max*D/2*t
+P2max = Pop_Max*D/4*t
 P3max = 0
 
 # Principle stresses for Minimum Operating Pressure
-P1min = Pop, Min*D/2*t
-P2min = Pop, Min*D/4*t
+P1min = Pop_Min*D/2*t
+P2min = Pop_Min*D/4*t
 P3min = 0
 
 # VM stress Max and Min Operating Pressure
