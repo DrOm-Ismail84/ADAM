@@ -72,6 +72,22 @@ P_DnV = (2*UTS*t/D-t)*((1-(Dc/t))/(1-(Dc/(t*Q))))
 # Calculate burst pressure of corroded pipe P PCORRC Model 
 P_PCORRC = (2*t*UTS/D)*(1-Dc/t)
 
+# Principle stresses for Intact Pipe
+P1 = Pvm*D/2*t
+P2 = Pvm*D/4*t
+P3 = 0
+
+# VM stress for Intact Pipe
+Sigma_VM_Intactpipe = 1/m.sqrt(2)*m.sqrt((P1-P2)**2+(P2-P3)**2+(P3-P1)**2)
+
+# Principle stresses for Corroded Pipe
+P1c = P_DnV*D/2*t
+P2c = P_DnV*D/4*t
+P3c = 0
+
+# VM stress for Corroded Pipe
+Sigma_VM_Corrordedpipe = 1/m.sqrt(2)*m.sqrt((P1c-P2c)**2+(P2c-P3c)**2+(P3c-P1c)**2)
+
 user_input={'t (mm)': "{:.2f}".format(t),
             'D (mm)': "{:.2f}".format(D),
             'L (mm)': "{:.2f}".format(L),
@@ -91,6 +107,16 @@ st.write(calculated_param_df)
 calculated_param={'PTresca (MPa)': "{:.2f}".format(PTresca)}
 calculated_param_df=pd.DataFrame(calculated_param, index=[0])
 st.subheader('Calculated Intact Pipe Burst Pressure via Tresca')
+st.write(calculated_param_df)
+
+calculated_param={'Pvm (MPa)': "{:.2f}".format(Pvm)}
+calculated_param_df=pd.DataFrame(calculated_param, index=[0])
+st.subheader('Calculated Intact Pipe Burst Pressure via Von Mises')
+st.write(calculated_param_df)
+
+calculated_param={'Sigma_VM_Intactpipe (MPa)': "{:.2f}".format(Pvm)}
+calculated_param_df=pd.DataFrame(calculated_param, index=[0])
+st.subheader('Von Mises stress of Intact Pipe')
 st.write(calculated_param_df)
 
 # Corroded Pipe
