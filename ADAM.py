@@ -33,10 +33,11 @@ def user_input_features():
             'L (mm)': pipe_length,
             'Lc (mm)': corrosion_length,
             'Dc (mm)': corrosion_depth,           
-            'UTS (MPa)': UTS}
+            'UTS (MPa)': UTS,
+            'Pop, Max (MPa)': Maximum_Operating_Pressure,
+            'Pop, Min (MPa)': Minimum_Operating_Pressure}
     features = pd.DataFrame(data, index=[0])
     return features
-
 
 df = user_input_features()
 
@@ -120,25 +121,29 @@ df = pd.DataFrame({"Burst Pressure (MPa)": Pressure}, index=index)
 
 st.pyplot(df.plot.barh(stacked=True).figure)
 
-# Principle stresses for Intact Pipe
-P1 = Pvm*D/2*t
-P2 = Pvm*D/4*t
-P3 = 0
+# Principle stresses for Maximum Operating Pressure
+P1max = Pop, Max*D/2*t
+P2max = Pop, Max*D/4*t
+P3max = 0
 
-# VM stress for Intact Pipe
-Sigma_VM_Intactpipe = 1/m.sqrt(2)*m.sqrt((P1-P2)**2+(P2-P3)**2+(P3-P1)**2)
+# Principle stresses for Minimum Operating Pressure
+P1min = Pop, Min*D/2*t
+P2min = Pop, Min*D/4*t
+P3min = 0
 
-# Principle stresses for Corroded Pipe
-P1c = P_DnV*D/2*t
-P2c = P_DnV*D/4*t
-P3c = 0
+# VM stress Max and Min Operating Pressure
+Sigma_VM_Pipe_Max_Operating_Pressure = 1/m.sqrt(2)*m.sqrt((P1max-P2max)**2+(P2max-P3max)**2+(P3max-P1max)**2)
 
-# VM stress for Corroded Pipe
-Sigma_VM_Corrordedpipe = 1/m.sqrt(2)*m.sqrt((P1c-P2c)**2+(P2c-P3c)**2+(P3c-P1c)**2)
+Sigma_VM_Pipe_Min_Operating_Pressure = 1/m.sqrt(2)*m.sqrt((P1min-P2min)**2+(P2min-P3min)**2+(P3min-P1min)**2)
 
-calculated_param={'Sigma_VM_Intactpipe (MPa)': "{:.2f}".format(Pvm)}
+calculated_param={'Sigma_VM_Pipe_Max_Operating_Pressure (MPa)': "{:.2f}".format(Pvm)}
 calculated_param_df=pd.DataFrame(calculated_param, index=[0])
-st.subheader('Von Mises stress of Intact Pipe')
+st.subheader('Von Mises stress of Maximum Operating Pressure')
+st.write(calculated_param_df)
+
+calculated_param={'Sigma_VM_Pipe_Min_Operating_Pressure (MPa)': "{:.2f}".format(Pvm)}
+calculated_param_df=pd.DataFrame(calculated_param, index=[0])
+st.subheader('Von Mises stress of Minimum Operating Pressure')
 st.write(calculated_param_df)
 
 st.subheader('Reference')
