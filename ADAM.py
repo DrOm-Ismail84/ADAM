@@ -135,12 +135,12 @@ Sigma_VM_Pipe_Max_Operating_Pressure = 1/m.sqrt(2)*m.sqrt((P1max-P2max)**2+(P2ma
 
 Sigma_VM_Pipe_Min_Operating_Pressure = 1/m.sqrt(2)*m.sqrt((P1min-P2min)**2+(P2min-P3min)**2+(P3min-P1min)**2)
 
-calculated_param={'Sigma_VM_Pipe_Max_Operating_Pressure (MPa)': "{:.2f}".format(Pvm)}
+calculated_param={'Sigma_VM_Pipe_Max_Operating_Pressure (MPa)': "{:.2f}".format(Sigma_VM_Pipe_Max_Operating_Pressure)}
 calculated_param_df=pd.DataFrame(calculated_param, index=[0])
 st.subheader('Von Mises stress of Maximum Operating Pressure')
 st.write(calculated_param_df)
 
-calculated_param={'Sigma_VM_Pipe_Min_Operating_Pressure (MPa)': "{:.2f}".format(Pvm)}
+calculated_param={'Sigma_VM_Pipe_Min_Operating_Pressure (MPa)': "{:.2f}".format(Sigma_VM_Pipe_Min_Operating_Pressure)}
 calculated_param_df=pd.DataFrame(calculated_param, index=[0])
 st.subheader('Von Mises stress of Minimum Operating Pressure')
 st.write(calculated_param_df)
