@@ -72,22 +72,6 @@ P_DnV = (2*UTS*t/D-t)*((1-(Dc/t))/(1-(Dc/(t*Q))))
 # Calculate burst pressure of corroded pipe P PCORRC Model 
 P_PCORRC = (2*t*UTS/D)*(1-Dc/t)
 
-# Principle stresses for Intact Pipe
-P1 = Pvm*D/2*t
-P2 = Pvm*D/4*t
-P3 = 0
-
-# VM stress for Intact Pipe
-Sigma_VM_Intactpipe = 1/m.sqrt(2)*m.sqrt((P1-P2)**2+(P2-P3)**2+(P3-P1)**2)
-
-# Principle stresses for Corroded Pipe
-P1c = P_DnV*D/2*t
-P2c = P_DnV*D/4*t
-P3c = 0
-
-# VM stress for Corroded Pipe
-Sigma_VM_Corrordedpipe = 1/m.sqrt(2)*m.sqrt((P1c-P2c)**2+(P2c-P3c)**2+(P3c-P1c)**2)
-
 user_input={'t (mm)': "{:.2f}".format(t),
             'D (mm)': "{:.2f}".format(D),
             'L (mm)': "{:.2f}".format(L),
@@ -140,6 +124,23 @@ index = ["Pvm (MPa)", "PTresca (MPa)", "P_ASME_B31G (MPa)", "P_DnV (MPa)", "P_PC
 df = pd.DataFrame({"Burst Pressure (MPa)": Pressure}, index=index)
 
 st.pyplot(df.plot.barh(stacked=True).figure)
+
+# Principle stresses for Intact Pipe
+P1 = Pvm*D/2*t
+P2 = Pvm*D/4*t
+P3 = 0
+
+# VM stress for Intact Pipe
+Sigma_VM_Intactpipe = 1/m.sqrt(2)*m.sqrt((P1-P2)**2+(P2-P3)**2+(P3-P1)**2)
+
+# Principle stresses for Corroded Pipe
+P1c = P_DnV*D/2*t
+P2c = P_DnV*D/4*t
+P3c = 0
+
+# VM stress for Corroded Pipe
+Sigma_VM_Corrordedpipe = 1/m.sqrt(2)*m.sqrt((P1c-P2c)**2+(P2c-P3c)**2+(P3c-P1c)**2)
+
 
 st.subheader('Reference')
 st.write('Xian-Kui Zhu, A comparative study of burst failure models for assessing remaining strength of corroded pipelines, Journal of Pipeline Science and Engineering 1 (2021) 36 - 50, https://doi.org/10.1016/j.jpse.2021.01.008')
