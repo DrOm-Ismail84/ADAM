@@ -98,11 +98,6 @@ calculated_param_df=pd.DataFrame(calculated_param, index=[0])
 st.subheader('Calculated Intact Pipe Burst Pressure via Von Mises')
 st.write(calculated_param_df)
 
-calculated_param={'Sigma_VM_Intactpipe (MPa)': "{:.2f}".format(Pvm)}
-calculated_param_df=pd.DataFrame(calculated_param, index=[0])
-st.subheader('Von Mises stress of Intact Pipe')
-st.write(calculated_param_df)
-
 # Corroded Pipe
 calculated_param={'P_ASME_B31G (MPa)': "{:.2f}".format(P_ASME_B31G)}
 calculated_param_df=pd.DataFrame(calculated_param, index=[0])
@@ -141,6 +136,10 @@ P3c = 0
 # VM stress for Corroded Pipe
 Sigma_VM_Corrordedpipe = 1/m.sqrt(2)*m.sqrt((P1c-P2c)**2+(P2c-P3c)**2+(P3c-P1c)**2)
 
+calculated_param={'Sigma_VM_Intactpipe (MPa)': "{:.2f}".format(Pvm)}
+calculated_param_df=pd.DataFrame(calculated_param, index=[0])
+st.subheader('Von Mises stress of Intact Pipe')
+st.write(calculated_param_df)
 
 st.subheader('Reference')
 st.write('Xian-Kui Zhu, A comparative study of burst failure models for assessing remaining strength of corroded pipelines, Journal of Pipeline Science and Engineering 1 (2021) 36 - 50, https://doi.org/10.1016/j.jpse.2021.01.008')
