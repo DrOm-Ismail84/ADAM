@@ -25,7 +25,7 @@ def user_input_features():
     corrosion_depth = st.sidebar.number_input('Corrosion Depth, Dc (mm)', value = 0.01)
     UTS = st.sidebar.number_input('Ultimate Tensile Strength, UTS (MPa)', value = 0.01)
     Maximum_Operating_Pressure = st.sidebar.slider('Maximum Operating Pressure, Pop, Max (MPa)', min_value=10, max_value=50, step=5)
-    Minimum_Operating_Pressure = st.sidebar.slider('Minimum Operating Pressure, Pop, Min (MPa)', min_value=1, max_value=10, step=10)
+    Minimum_Operating_Pressure = st.sidebar.slider('Minimum Operating Pressure, Pop, Min (MPa)', min_value=10, max_value=50, step=5)
 
     data = {'t (mm)': pipe_thickness,
             'D (mm)': pipe_diameter,
