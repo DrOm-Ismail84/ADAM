@@ -47,6 +47,8 @@ L=df['L (mm)'].values.item()
 Lc=df['Lc (mm)'].values.item()
 Dc=df['Dc (mm)'].values.item()
 UTS=df['UTS (MPa)'].values.item()
+Pop_Max=df['Pop_Max (MPa)'].values.item()
+Pop_Min=df['Pop_Min (MPa)'].values.item()
 
 st.subheader('Nomenclature')
 st.write('t is the pipe thickness; D is the pipe diameter; L is the pipe length; Lc is the corrorsion length; Dc is the corrorsion depth; UTS is the pipe material Ultimate Tensile Strength.')
