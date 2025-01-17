@@ -48,7 +48,7 @@ L=df['L (mm)'].values.item()
 Lc=df['Lc (mm)'].values.item()
 Dc=df['Dc (mm)'].values.item()
 UTS=df['UTS (MPa)'].values.item()
-Sy=df['Sy (MPa)'].value.item()
+Sy=df['Sy (MPa)'].values.item()
 Pop_Max=df['Pop_Max (MPa)'].values.item()
 Pop_Min=df['Pop_Min (MPa)'].values.item()
 
