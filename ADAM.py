@@ -122,12 +122,12 @@ st.pyplot(df.plot.barh(stacked=True).figure)
 
 # Principle stresses for Maximum Operating Pressure
 P1max = Pop_Max*D/(2*t)
-P2max = Pop_Max*D/4*t
+P2max = Pop_Max*D/(4*t)
 P3max = 0
 
 # Principle stresses for Minimum Operating Pressure
-P1min = Pop_Min*D/2*t
-P2min = Pop_Min*D/4*t
+P1min = Pop_Min*D/(2*t)
+P2min = Pop_Min*D/(4*t)
 P3min = 0
 
 # VM stress Max and Min Operating Pressure
@@ -135,7 +135,7 @@ Sigma_VM_Pipe_Max_Operating_Pressure = (1/m.sqrt(2))*((P1max-P2max)**2+(P2max-P3
 
 Sigma_VM_Pipe_Min_Operating_Pressure = 1/m.sqrt(2)*m.sqrt((P1min-P2min)**2+(P2min-P3min)**2+(P3min-P1min)**2)
 
-calculated_param={'Sigma_VM_Pipe_Max_Operating_Pressure (MPa)': "{:.2f}".format(P1max)}
+calculated_param={'Sigma_VM_Pipe_Max_Operating_Pressure (MPa)': "{:.2f}".format(Sigma_VM_Pipe_Max_Operating_Pressure)}
 calculated_param_df=pd.DataFrame(calculated_param, index=[0])
 st.subheader('Von Mises stress of Maximum Operating Pressure')
 st.write(calculated_param_df)
