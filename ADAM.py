@@ -23,7 +23,7 @@ def user_input_features():
     pipe_length = st.sidebar.number_input('Pipe Length, L (mm)', value = 0.01)
     corrosion_length = st.sidebar.number_input('Corrosion Length, Lc (mm)', value = 0.01)
     corrosion_depth = st.sidebar.number_input('Corrosion Depth, Dc (mm)', value = 0.01)
-    Sy = st.sidebar.number_input('Yield Stress, UTS (MPa)', value = 0.01)
+    Sy = st.sidebar.number_input('Yield Stress, Sy (MPa)', value = 0.01)
     UTS = st.sidebar.number_input('Ultimate Tensile Strength, UTS (MPa)', value = 0.01)
     Maximum_Operating_Pressure = st.sidebar.slider('Maximum Operating Pressure, Pop, Max (MPa)', min_value=0, max_value=50, step=1)
     Minimum_Operating_Pressure = st.sidebar.slider('Minimum Operating Pressure, Pop, Min (MPa)', min_value=0, max_value=50, step=1)
@@ -34,6 +34,7 @@ def user_input_features():
             'Lc (mm)': corrosion_length,
             'Dc (mm)': corrosion_depth,           
             'UTS (MPa)': UTS,
+            'Sy (MPa)': Sy,
             'Pop_Max (MPa)': Maximum_Operating_Pressure,
             'Pop_Min (MPa)': Minimum_Operating_Pressure}
     features = pd.DataFrame(data, index=[0])
@@ -47,6 +48,7 @@ L=df['L (mm)'].values.item()
 Lc=df['Lc (mm)'].values.item()
 Dc=df['Dc (mm)'].values.item()
 UTS=df['UTS (MPa)'].values.item()
+Sy=df['Sy (MPa)'].value.item()
 Pop_Max=df['Pop_Max (MPa)'].values.item()
 Pop_Min=df['Pop_Min (MPa)'].values.item()
 
@@ -81,6 +83,7 @@ user_input={'t (mm)': "{:.2f}".format(t),
             'Lc (mm)': "{:.2f}".format(Lc),
             'Dc (mm)': "{:.2f}".format(Dc),
             'UTS (MPa)': "{:.2f}".format(UTS),
+            'Sy (MPa)': "{:.2f}".format(Sy),
             'Pop_Max (MPa)': "{:.2f}".format(Pop_Max),
             'Pop_Min (MPa)': "{:.2f}".format(Pop_Min)}
 user_input_df=pd.DataFrame(user_input, index=[0])
@@ -144,6 +147,12 @@ calculated_param={'Sigma_VM_Pipe_Min_Operating_Pressure (MPa)': "{:.2f}".format(
 calculated_param_df=pd.DataFrame(calculated_param, index=[0])
 st.subheader('Von Mises stress of Minimum Operating Pressure')
 st.write(calculated_param_df)
+
+Stresses = [Sigma_VM_Pipe_Max_Operating_Pressure, Sigma_VM_Pipe_Min_Operating_Pressure, Sy, UTS]
+index = ["Svm_Max (MPa)", "Svm_Min (MPa)", "Yield Stress (MPa)", "UTS (MPa)"]
+df = pd.DataFrame({"Stresses (MPa)": Stresses}, index=index)
+
+st.pyplot(df.plot.barh(stacked=True).figure)
 
 st.subheader('Reference')
 st.write('Xian-Kui Zhu, A comparative study of burst failure models for assessing remaining strength of corroded pipelines, Journal of Pipeline Science and Engineering 1 (2021) 36 - 50, https://doi.org/10.1016/j.jpse.2021.01.008')
