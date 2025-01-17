@@ -53,7 +53,7 @@ Pop_Max=df['Pop_Max (MPa)'].values.item()
 Pop_Min=df['Pop_Min (MPa)'].values.item()
 
 st.subheader('Nomenclature')
-st.write('t is the pipe thickness; D is the pipe diameter; L is the pipe length; Lc is the corrorsion length; Dc is the corrorsion depth; UTS is the pipe material Ultimate Tensile Strength.')
+st.write('t is the pipe thickness; D is the pipe diameter; L is the pipe length (i.e., by default = 1000 mm); Lc is the corrosion length; Dc is the corrosion depth; Sy is the pipe material yield stress; UTS is the pipe material Ultimate Tensile Strength.')
 
 # Calculate burst pressure of intact pipe P Von Mises
 Pvm = 4*t*UTS/(m.sqrt(3)*D)
