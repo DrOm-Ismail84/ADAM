@@ -131,7 +131,7 @@ P2min = Pop_Min*D/4*t
 P3min = 0
 
 # VM stress Max and Min Operating Pressure
-Sigma_VM_Pipe_Max_Operating_Pressure = 1/m.sqrt(2)*m.sqrt((P1max-P2max)**2+(P2max-P3max)**2+(P3max-P1max)**2)
+Sigma_VM_Pipe_Max_Operating_Pressure = [1/m.sqrt(2)]*m.sqrt((P1max-P2max)**2+(P2max-P3max)**2+(P3max-P1max)**2)
 
 Sigma_VM_Pipe_Min_Operating_Pressure = 1/m.sqrt(2)*m.sqrt((P1min-P2min)**2+(P2min-P3min)**2+(P3min-P1min)**2)
 
